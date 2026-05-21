@@ -10,3 +10,463 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+/* -------------------------------------
+   Global
+------------------------------------- */
+
+body {
+  background: #f4f1ea;
+  color: #111827;
+  font-family: "Inter", "Helvetica", "sans-serif";
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: 900;
+}
+
+a {
+  transition: 0.2s ease;
+}
+
+.eyebrow,
+.eyebrow-dark {
+  display: inline-block;
+  margin-bottom: 12px;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.eyebrow {
+  color: #facc15;
+}
+
+.eyebrow-dark {
+  color: #b91c1c;
+}
+
+/* -------------------------------------
+   Buttons
+------------------------------------- */
+
+.btn-primary {
+  background: #b91c1c;
+  border-color: #b91c1c;
+  border-radius: 999px;
+  padding: 12px 26px;
+  font-weight: 800;
+  box-shadow: 0 14px 30px rgba(185, 28, 28, 0.25);
+}
+
+.btn-primary:hover {
+  background: #7f1d1d;
+  border-color: #7f1d1d;
+  transform: translateY(-2px);
+}
+
+.btn-secondary,
+.btn-outline-secondary,
+.btn-outline-danger {
+  border-radius: 999px;
+  padding: 10px 22px;
+  font-weight: 700;
+}
+
+/* -------------------------------------
+   Home banner
+------------------------------------- */
+
+.banner {
+  min-height: 540px;
+  display: flex;
+  align-items: center;
+  color: white;
+  background:
+    linear-gradient(135deg, rgba(3, 7, 18, 0.95), rgba(17, 24, 39, 0.45)),
+    url("https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?q=80&w=1800&auto=format&fit=crop");
+  background-size: cover;
+  background-position: center;
+}
+
+.banner-content {
+  max-width: 760px;
+}
+
+.banner h1 {
+  font-size: 72px;
+  line-height: 0.95;
+  margin-bottom: 22px;
+  letter-spacing: -2px;
+}
+
+.banner p {
+  max-width: 620px;
+  font-size: 22px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.86);
+  margin-bottom: 34px;
+}
+
+/* -------------------------------------
+   Sections
+------------------------------------- */
+
+.container.py-5 {
+  position: relative;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 32px;
+}
+
+.section-heading h2 {
+  font-size: 42px;
+  margin-bottom: 6px;
+}
+
+.section-heading p {
+  color: #6b7280;
+  margin-bottom: 0;
+}
+
+.empty-state {
+  background: white;
+  border-radius: 32px;
+  padding: 72px;
+  text-align: center;
+  box-shadow: 0 22px 55px rgba(15, 23, 42, 0.1);
+}
+
+.empty-state h2 {
+  margin-bottom: 12px;
+}
+
+.empty-state p {
+  color: #6b7280;
+  margin-bottom: 24px;
+}
+
+/* -------------------------------------
+   List cards - different image by category
+------------------------------------- */
+
+.list-card {
+  position: relative;
+  height: 260px;
+  padding: 28px;
+  border-radius: 32px;
+  color: white;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(3, 7, 18, 0.08), rgba(3, 7, 18, 0.9)),
+    url("https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?q=80&w=1400&auto=format&fit=crop");
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.24);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.list-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 34px 85px rgba(15, 23, 42, 0.38);
+}
+
+.list-card-overlay {
+  position: relative;
+  z-index: 2;
+}
+
+.list-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(250, 204, 21, 0.22), transparent 35%);
+  z-index: 1;
+}
+
+.list-card h3 {
+  font-size: 32px;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.list-card p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.82);
+  font-weight: 600;
+}
+
+.list-tag {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(8px);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Action */
+.list-card.action {
+  background:
+    linear-gradient(180deg, rgba(3, 7, 18, 0.05), rgba(3, 7, 18, 0.92)),
+    url("https://images.unsplash.com/photo-1535016120720-40c646be5580?q=80&w=1400&auto=format&fit=crop");
+  background-size: cover;
+  background-position: center;
+}
+
+/* Comédie */
+.list-card.comedie,
+.list-card.comedy {
+  background:
+    linear-gradient(180deg, rgba(3, 7, 18, 0.05), rgba(3, 7, 18, 0.88)),
+    url("https://images.unsplash.com/photo-1543584756-31b1f4f47c0b?q=80&w=1400&auto=format&fit=crop");
+  background-size: cover;
+  background-position: center;
+}
+
+/* Drama / Drame */
+.list-card.drama,
+.list-card.drame {
+  background:
+    linear-gradient(180deg, rgba(3, 7, 18, 0.05), rgba(3, 7, 18, 0.9)),
+    url("https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=1400&auto=format&fit=crop");
+  background-size: cover;
+  background-position: center;
+}
+
+/* Classique */
+.list-card.classic,
+.list-card.classique {
+  background:
+    linear-gradient(180deg, rgba(3, 7, 18, 0.05), rgba(3, 7, 18, 0.9)),
+    url("https://images.unsplash.com/photo-1505686994434-e3cc5abf1330?q=80&w=1400&auto=format&fit=crop");
+  background-size: cover;
+  background-position: center;
+}
+
+/* Horreur */
+.list-card.horreur,
+.list-card.horror {
+  background:
+    linear-gradient(180deg, rgba(3, 7, 18, 0.05), rgba(3, 7, 18, 0.94)),
+    url("https://images.unsplash.com/photo-1505635552518-3448ff116af3?q=80&w=1400&auto=format&fit=crop");
+  background-size: cover;
+  background-position: center;
+}
+
+/* Romance */
+.list-card.romance {
+  background:
+    linear-gradient(180deg, rgba(3, 7, 18, 0.05), rgba(3, 7, 18, 0.88)),
+    url("https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=1400&auto=format&fit=crop");
+  background-size: cover;
+  background-position: center;
+}
+
+/* Science-fiction */
+.list-card.science-fiction,
+.list-card.sci-fi,
+.list-card.sf {
+  background:
+    linear-gradient(180deg, rgba(3, 7, 18, 0.05), rgba(3, 7, 18, 0.92)),
+    url("https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80&w=1400&auto=format&fit=crop");
+  background-size: cover;
+  background-position: center;
+}
+
+/* Animation */
+.list-card.animation {
+  background:
+    linear-gradient(180deg, rgba(3, 7, 18, 0.05), rgba(3, 7, 18, 0.86)),
+    url("https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1400&auto=format&fit=crop");
+  background-size: cover;
+  background-position: center;
+}
+
+/* Thriller */
+.list-card.thriller {
+  background:
+    linear-gradient(180deg, rgba(3, 7, 18, 0.05), rgba(3, 7, 18, 0.92)),
+    url("https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?q=80&w=1400&auto=format&fit=crop");
+  background-size: cover;
+  background-position: center;
+}
+
+/* Documentaire */
+.list-card.documentaire,
+.list-card.documentary {
+  background:
+    linear-gradient(180deg, rgba(3, 7, 18, 0.05), rgba(3, 7, 18, 0.88)),
+    url("https://images.unsplash.com/photo-1495020689067-958852a7765e?q=80&w=1400&auto=format&fit=crop");
+  background-size: cover;
+  background-position: center;
+}
+
+/* À revoir */
+.list-card.a-revoir,
+.list-card.to-rewatch {
+  background:
+    linear-gradient(180deg, rgba(3, 7, 18, 0.05), rgba(3, 7, 18, 0.9)),
+    url("https://images.unsplash.com/photo-1478720568477-152d9b164e26?q=80&w=1400&auto=format&fit=crop");
+  background-size: cover;
+  background-position: center;
+}
+
+/* -------------------------------------
+   List show header
+------------------------------------- */
+
+.list-header {
+  padding: 92px 0;
+  color: white;
+  background:
+    radial-gradient(circle at top left, rgba(185, 28, 28, 0.85), transparent 32%),
+    linear-gradient(135deg, #030712, #111827);
+}
+
+.list-header h1 {
+  font-size: 58px;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.list-header p {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+/* -------------------------------------
+   Movie cards - show page
+------------------------------------- */
+
+.card {
+  border: 0 !important;
+  border-radius: 30px !important;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 22px 55px rgba(15, 23, 42, 0.16) !important;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 32px 78px rgba(15, 23, 42, 0.24) !important;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 230px !important;
+  object-fit: cover;
+  background: #111827;
+}
+
+.card-body {
+  padding: 24px;
+}
+
+.card-title {
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.card-text {
+  line-height: 1.5;
+}
+
+.badge {
+  border-radius: 999px;
+  padding: 8px 10px;
+  font-weight: 900;
+}
+
+.bg-light {
+  background: #f3f4f6 !important;
+}
+
+/* -------------------------------------
+   Forms
+------------------------------------- */
+
+.page-wrapper {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+}
+
+.form-card {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 48px;
+  background: white;
+  border-radius: 34px;
+  box-shadow: 0 26px 75px rgba(15, 23, 42, 0.16);
+}
+
+.form-card h1 {
+  font-size: 42px;
+  margin-bottom: 12px;
+}
+
+.form-control,
+.form-select {
+  border-radius: 16px;
+  padding: 12px 14px;
+}
+
+.form-label {
+  font-weight: 800;
+}
+
+/* -------------------------------------
+   Responsive
+------------------------------------- */
+
+@media (max-width: 768px) {
+  .banner {
+    min-height: 420px;
+  }
+
+  .banner h1 {
+    font-size: 46px;
+  }
+
+  .banner p {
+    font-size: 18px;
+  }
+
+  .section-heading h2 {
+    font-size: 34px;
+  }
+
+  .list-header {
+    padding: 58px 0;
+  }
+
+  .list-header h1 {
+    font-size: 42px;
+  }
+
+  .form-card {
+    padding: 30px;
+  }
+
+  .empty-state {
+    padding: 44px 24px;
+  }
+}
