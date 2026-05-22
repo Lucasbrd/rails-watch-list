@@ -88,8 +88,8 @@ a {
   align-items: center;
   color: white;
   background:
-    linear-gradient(135deg, rgba(3, 7, 18, 0.95), rgba(17, 24, 39, 0.45)),
-    url("https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?q=80&w=1800&auto=format&fit=crop");
+    linear-gradient(135deg, rgba(3, 7, 18, 0.92), rgba(17, 24, 39, 0.35)),
+    asset-url("header-cinema.png");
   background-size: cover;
   background-position: center;
 }
@@ -156,23 +156,16 @@ a {
 }
 
 /* -------------------------------------
-   List cards - different image by category
+   List cards - uploaded images
 ------------------------------------- */
 
 .list-card {
   position: relative;
   height: 260px;
-  padding: 28px;
   border-radius: 32px;
-  color: white;
-  display: flex;
-  align-items: flex-end;
   overflow: hidden;
-  background:
-    linear-gradient(180deg, rgba(3, 7, 18, 0.08), rgba(3, 7, 18, 0.9)),
-    url("https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?q=80&w=1400&auto=format&fit=crop");
-  background-size: cover;
-  background-position: center;
+  color: white;
+  background: #111827;
   box-shadow: 0 24px 60px rgba(15, 23, 42, 0.24);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
@@ -182,23 +175,39 @@ a {
   box-shadow: 0 34px 85px rgba(15, 23, 42, 0.38);
 }
 
-.list-card-overlay {
-  position: relative;
-  z-index: 2;
+.list-card-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center center;
 }
 
-.list-card::before {
-  content: "";
+.list-card-gradient {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at top right, rgba(250, 204, 21, 0.22), transparent 35%);
   z-index: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(3, 7, 18, 0.05) 0%,
+    rgba(3, 7, 18, 0.25) 45%,
+    rgba(3, 7, 18, 0.9) 100%
+  );
+}
+
+.list-card-overlay {
+  position: absolute;
+  left: 28px;
+  right: 28px;
+  bottom: 28px;
+  z-index: 2;
 }
 
 .list-card h3 {
   font-size: 32px;
   line-height: 1;
   margin-bottom: 8px;
+  color: white;
 }
 
 .list-card p {
@@ -220,134 +229,55 @@ a {
   text-transform: uppercase;
 }
 
-/* Action */
-.list-card.action {
-  background:
-    linear-gradient(180deg, rgba(3, 7, 18, 0.05), rgba(3, 7, 18, 0.92)),
-    url("https://images.unsplash.com/photo-1535016120720-40c646be5580?q=80&w=1400&auto=format&fit=crop");
-  background-size: cover;
-  background-position: center;
-}
-
-/* Comédie */
-.list-card.comedie,
-.list-card.comedy {
-  background:
-    linear-gradient(180deg, rgba(3, 7, 18, 0.05), rgba(3, 7, 18, 0.88)),
-    url("https://images.unsplash.com/photo-1543584756-31b1f4f47c0b?q=80&w=1400&auto=format&fit=crop");
-  background-size: cover;
-  background-position: center;
-}
-
-/* Drama / Drame */
-.list-card.drama,
-.list-card.drame {
-  background:
-    linear-gradient(180deg, rgba(3, 7, 18, 0.05), rgba(3, 7, 18, 0.9)),
-    url("https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=1400&auto=format&fit=crop");
-  background-size: cover;
-  background-position: center;
-}
-
-/* Classique */
-.list-card.classic,
-.list-card.classique {
-  background:
-    linear-gradient(180deg, rgba(3, 7, 18, 0.05), rgba(3, 7, 18, 0.9)),
-    url("https://images.unsplash.com/photo-1505686994434-e3cc5abf1330?q=80&w=1400&auto=format&fit=crop");
-  background-size: cover;
-  background-position: center;
-}
-
-/* Horreur */
-.list-card.horreur,
-.list-card.horror {
-  background:
-    linear-gradient(180deg, rgba(3, 7, 18, 0.05), rgba(3, 7, 18, 0.94)),
-    url("https://images.unsplash.com/photo-1505635552518-3448ff116af3?q=80&w=1400&auto=format&fit=crop");
-  background-size: cover;
-  background-position: center;
-}
-
-/* Romance */
-.list-card.romance {
-  background:
-    linear-gradient(180deg, rgba(3, 7, 18, 0.05), rgba(3, 7, 18, 0.88)),
-    url("https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=1400&auto=format&fit=crop");
-  background-size: cover;
-  background-position: center;
-}
-
-/* Science-fiction */
-.list-card.science-fiction,
-.list-card.sci-fi,
-.list-card.sf {
-  background:
-    linear-gradient(180deg, rgba(3, 7, 18, 0.05), rgba(3, 7, 18, 0.92)),
-    url("https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80&w=1400&auto=format&fit=crop");
-  background-size: cover;
-  background-position: center;
-}
-
-/* Animation */
-.list-card.animation {
-  background:
-    linear-gradient(180deg, rgba(3, 7, 18, 0.05), rgba(3, 7, 18, 0.86)),
-    url("https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1400&auto=format&fit=crop");
-  background-size: cover;
-  background-position: center;
-}
-
-/* Thriller */
-.list-card.thriller {
-  background:
-    linear-gradient(180deg, rgba(3, 7, 18, 0.05), rgba(3, 7, 18, 0.92)),
-    url("https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?q=80&w=1400&auto=format&fit=crop");
-  background-size: cover;
-  background-position: center;
-}
-
-/* Documentaire */
-.list-card.documentaire,
-.list-card.documentary {
-  background:
-    linear-gradient(180deg, rgba(3, 7, 18, 0.05), rgba(3, 7, 18, 0.88)),
-    url("https://images.unsplash.com/photo-1495020689067-958852a7765e?q=80&w=1400&auto=format&fit=crop");
-  background-size: cover;
-  background-position: center;
-}
-
-/* À revoir */
-.list-card.a-revoir,
-.list-card.to-rewatch {
-  background:
-    linear-gradient(180deg, rgba(3, 7, 18, 0.05), rgba(3, 7, 18, 0.9)),
-    url("https://images.unsplash.com/photo-1478720568477-152d9b164e26?q=80&w=1400&auto=format&fit=crop");
-  background-size: cover;
-  background-position: center;
-}
-
 /* -------------------------------------
-   List show header
+   List cover - show page
 ------------------------------------- */
 
-.list-header {
-  padding: 92px 0;
-  color: white;
-  background:
-    radial-gradient(circle at top left, rgba(185, 28, 28, 0.85), transparent 32%),
-    linear-gradient(135deg, #030712, #111827);
+.list-cover {
+  position: relative;
+  height: 480px;
+  overflow: hidden;
+  background: #111827;
 }
 
-.list-header h1 {
-  font-size: 58px;
+.list-cover img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.list-cover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(3, 7, 18, 0.92),
+    rgba(3, 7, 18, 0.35)
+  );
+}
+
+.list-cover-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.list-cover-overlay h1 {
+  font-size: 64px;
+  font-weight: 900;
   line-height: 1;
   margin-bottom: 12px;
 }
 
-.list-header p {
+.list-cover-overlay p {
   font-size: 18px;
-  color: rgba(255, 255, 255, 0.72);
+  color: rgba(255, 255, 255, 0.78);
 }
 
 /* -------------------------------------
@@ -372,6 +302,7 @@ a {
   width: 100%;
   height: 230px !important;
   object-fit: cover;
+  object-position: center center;
   background: #111827;
 }
 
@@ -450,15 +381,23 @@ a {
     font-size: 18px;
   }
 
+  .section-heading {
+    display: block;
+  }
+
   .section-heading h2 {
     font-size: 34px;
   }
 
-  .list-header {
-    padding: 58px 0;
+  .list-card {
+    height: 220px;
   }
 
-  .list-header h1 {
+  .list-cover {
+    height: 360px;
+  }
+
+  .list-cover-overlay h1 {
     font-size: 42px;
   }
 
@@ -469,4 +408,23 @@ a {
   .empty-state {
     padding: 44px 24px;
   }
+}
+
+.btn-glass {
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  border-radius: 999px;
+  padding: 12px 24px;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+}
+
+.btn-glass:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.55);
+  transform: translateY(-2px);
 }

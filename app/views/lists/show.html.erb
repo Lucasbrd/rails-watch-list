@@ -1,18 +1,30 @@
-<div class="container my-5">
-  <div class="d-flex justify-content-between align-items-center mb-4">
-    <div>
-      <h1 class="mb-2"><%= @list.name %></h1>
-      <p class="text-muted mb-0">
-        Retrouvez tous les films ajoutés à cette liste.
-      </p>
-    </div>
+<div class="list-cover">
+  <% if @list.photo.attached? %>
+    <%= image_tag @list.photo, alt: @list.name %>
+  <% else %>
+    <%= image_tag "https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?q=80&w=1600&auto=format&fit=crop",
+                  alt: "Cinéma" %>
+  <% end %>
 
-    <div class="d-flex gap-2">
-      <%= link_to "Retour aux listes", lists_path, class: "btn btn-outline-secondary" %>
-      <%= link_to "Ajouter un film", new_list_bookmark_path(@list), class: "btn btn-primary" %>
+  <div class="list-cover-overlay">
+    <div class="container">
+      <h1><%= @list.name %></h1>
+      <p><%= pluralize(@list.movies.count, "film") %> dans cette liste</p>
+
+      <div class="d-flex gap-2 mt-4">
+        <%= link_to "← Retour aux listes",
+                    lists_path,
+                    class: "btn btn-glass" %>
+
+        <%= link_to "Ajouter un film",
+                    new_list_bookmark_path(@list),
+                    class: "btn btn-primary" %>
+      </div>
     </div>
   </div>
+</div>
 
+<div class="container my-5">
   <% if @list.bookmarks.any? %>
     <div class="row">
       <% @list.bookmarks.each do |bookmark| %>
@@ -21,9 +33,9 @@
             <div class="card-body">
               <div class="d-flex gap-4">
                 <%= image_tag bookmark.movie.poster_url,
-                  alt: bookmark.movie.title,
-                  class: "rounded shadow-sm",
-                  style: "width: 160px; height: 240px; object-fit: cover; flex-shrink: 0;" %>
+                              alt: bookmark.movie.title,
+                              class: "rounded shadow-sm",
+                              style: "width: 160px; height: 240px; object-fit: cover; flex-shrink: 0;" %>
 
                 <div class="d-flex flex-column justify-content-between w-100">
                   <div>
@@ -47,12 +59,12 @@
 
                   <div class="text-end mt-3">
                     <%= link_to "Supprimer",
-                      bookmark_path(bookmark),
-                      data: {
-                        turbo_method: :delete,
-                        turbo_confirm: "Êtes-vous sûr de vouloir supprimer ce film de la liste ?"
-                      },
-                      class: "btn btn-outline-danger btn-sm" %>
+                                bookmark_path(bookmark),
+                                data: {
+                                  turbo_method: :delete,
+                                  turbo_confirm: "Êtes-vous sûr de vouloir supprimer ce film de la liste ?"
+                                },
+                                class: "btn btn-outline-danger btn-sm" %>
                   </div>
                 </div>
               </div>
@@ -69,7 +81,9 @@
           Ajoutez votre premier film pour commencer votre watch list.
         </p>
 
-        <%= link_to "Ajouter un film", new_list_bookmark_path(@list), class: "btn btn-primary" %>
+        <%= link_to "Ajouter un film",
+                    new_list_bookmark_path(@list),
+                    class: "btn btn-primary" %>
       </div>
     </div>
   <% end %>

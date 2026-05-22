@@ -3,11 +3,12 @@
     <div class="form-card">
       <h1>Créer une nouvelle liste</h1>
       <p class="text-muted mb-4">
-        Donne un nom clair à ta liste, par exemple : Action, Comédie, À revoir.
+        Donne un nom à ta collection et ajoute une image de couverture.
       </p>
 
       <%= simple_form_for @list do |f| %>
         <%= f.input :name, label: "Nom de la liste" %>
+        <%= f.input :photo, as: :file, label: "Image de couverture" %>
 
         <div class="d-flex gap-2 mt-4">
           <%= f.submit "Créer la liste", class: "btn btn-primary" %>

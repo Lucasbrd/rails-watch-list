@@ -2,8 +2,8 @@
   <div class="container">
     <div class="banner-content">
       <span class="eyebrow">Watch List</span>
-      <h1>La Cinémathèque privée</h1>
-      <p>Organise tes films préférés dans des collections élégantes, par ambiance, genre ou envie du moment.</p>
+      <h1>Ma cinémathèque</h1>
+      <p>Crée tes collections de films, ajoute tes affiches de couverture et retrouve facilement tes sélections préférées.</p>
 
       <%= link_to "Créer une nouvelle collection",
                   new_list_path,
@@ -24,11 +24,19 @@
   <% if @lists.any? %>
     <div class="row">
       <% @lists.each do |list| %>
-        <% category_class = list.name.parameterize %>
-
         <div class="col-12 col-sm-6 col-lg-4 mb-4">
           <%= link_to list_path(list), class: "text-decoration-none" do %>
-            <div class="list-card <%= category_class %>">
+            <div class="list-card">
+              <% if list.photo.attached? %>
+                <%= image_tag list.photo, class: "list-card-image", alt: list.name %>
+              <% else %>
+                <%= image_tag "https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?q=80&w=1200&auto=format&fit=crop",
+                              class: "list-card-image",
+                              alt: "Cinéma" %>
+              <% end %>
+
+              <div class="list-card-gradient"></div>
+
               <div class="list-card-overlay">
                 <span class="list-tag">Collection</span>
                 <h3><%= list.name %></h3>
@@ -43,7 +51,7 @@
     <div class="empty-state">
       <span class="eyebrow-dark">Première collection</span>
       <h2>Aucune liste pour le moment</h2>
-      <p>Crée ta première collection pour commencer à organiser tes films.</p>
+      <p>Crée ta première collection et ajoute une image de couverture.</p>
 
       <%= link_to "Créer une liste",
                   new_list_path,
